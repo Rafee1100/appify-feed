@@ -29,9 +29,10 @@ export default function errorHandler(err, req, res, _next) {
     });
   }
 
-  console.error("[unhandled]", err);
+  console.error("[unhandled]", err && err.stack ? err.stack : err);
   return res.status(500).json({
     error: ERROR_CODES.INTERNAL,
     message: "Something went wrong. Please try again.",
+    detail: err && err.message ? err.message : undefined,
   });
 }

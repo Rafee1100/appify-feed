@@ -62,7 +62,10 @@ if (JWT_ACCESS_SECRET === JWT_REFRESH_SECRET) {
 const env = Object.freeze({
   NODE_ENV: optional("NODE_ENV", "development"),
   PORT: Number(optional("PORT", "4000")),
-  CLIENT_ORIGIN: required("CLIENT_ORIGIN"),
+  CLIENT_ORIGIN: optional(
+    "CLIENT_ORIGIN",
+    "http://localhost:3000,https://appify-feed-1.onrender.com",
+  ),
 
   DB_HOST: required("DB_HOST"),
   DB_PORT: Number(required("DB_PORT")),
