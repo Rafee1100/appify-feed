@@ -30,6 +30,7 @@ async function run() {
     user: env.DB_USER,
     password: env.DB_PASS,
     database: env.DB_NAME,
+    ssl: { rejectUnauthorized: true },
     multipleStatements: true,
   });
 
