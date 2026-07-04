@@ -1,19 +1,54 @@
-import mongoose from "mongoose";
-import { env } from "./env";
+import mysql from "mysql2";
+import mysqlp from "mysql2/promise";
+import env from "./env.js";
 
-mongoose.set("strictQuery", true);
-export async function connectDB() {
+const pool = mysqlp.createPool({
+  host: env.DB_HOST,
+  port: env.DB_PORT,
+  user: env.DB_USER,
+  password: env.DB_PASS,
+  database: env.DB_NAME,
+  waitForConnections: true,
+  connectionLimit: 10,
+  queueLimit: 0,
+  decimalNumbers: true,
+  timezone: "Z",
+  dateStrings: false,
+});
+
+const callbackPool = mysql.createPool({
+  host: env.DB_HOST,
+  port: env.DB_PORT,
+  user: env.DB_USER,
+  password: env.DB_PASS,
+  database: env.DB_NAME,
+  waitForConnections: true,
+  connectionLimit: 5,
+  queueLimit: 0,
+});
+
+async function query(sql, params = []) {
+  const [rows] = await pool.query(sql, params);
+  return rows;
+}
+
+async function withTransaction(fn) {
+  const connection = await pool.getConnection();
   try {
-    await mongoose.connect(env.MONGO_URI, {
-      serverSelectionTimeoutMS: 5_000,
-    });
-    console.log("MongoDB connected");
+    await connection.beginTransaction();
+    const result = await fn(connection);
+    await connection.commit();
+    return result;
   } catch (error) {
-    console.error("MongoDB connection error:", error);
-    process.exit(1);
+    await connection.rollback();
+    throw error;
+  } finally {
+    connection.release();
   }
 }
 
-export async function disconnectDb() {
-  await mongoose.disconnect();
+async function close() {
+  await Promise.all([pool.end(), new Promise((r) => callbackPool.end(r))]);
 }
+
+export { pool, callbackPool, query, withTransaction, close };

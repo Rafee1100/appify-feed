@@ -1,16 +1,39 @@
-
 import express from "express";
+import cookieParser from "cookie-parser";
+import cors from "cors";
 
-export function buildApp() {
-    const app = express();
+import env from './config/env.js';
+import authRoutes    from './modules/auth/auth.routes.js';
+import postRoutes    from './modules/posts/post.routes.js';
+import commentRoutes from './modules/comments/comment.routes.js';
+import likeRoutes    from './modules/likes/like.routes.js';
+import notFound from './middleware/notFound.js';
+import errorHandler from './middleware/errorHandler.js';
 
-    app.set("trust proxy", true);
+const app = express();
 
-    app.use((_req, res, next) => {
-        res.setHeader('X-Content-Type-Options', 'nosniff');
-        res.setHeader('X-Frame-Options', 'DENY');
-        res.setHeader('Referrer-Policy', 'strict-origin-when-cross-origin');
-        next();
-    });
-    
-}
+app.set("trust proxy", true);
+
+app.use(
+  cors({
+    origin: env.CLIENT_ORIGIN,
+    credentials: true,
+  }),
+);
+app.use(cookieParser());
+app.use(express.json({ limit: "1mb" }));
+
+app.get("/health", (req, res) => {
+  res.status(200).json({ status: "ok" });
+});
+
+app.use('/api/auth', authRoutes);
+app.use('/api/posts', postRoutes);
+app.use('/api/comments', commentRoutes);
+app.use('/api/likes', likeRoutes);
+
+
+app.use(notFound);
+app.use(errorHandler);
+
+export default app;
