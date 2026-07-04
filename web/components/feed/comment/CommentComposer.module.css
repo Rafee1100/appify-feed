@@ -1,0 +1,86 @@
+.commentBox {
+  background: #f6f6f6;
+  border-radius: 18px;
+  padding: 4px 9px;
+}
+
+.commentForm {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.commentContent {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  flex: 1 1;
+}
+
+.commentContentText {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.commentContentText :global(.form-control) {
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+  background: transparent !important;
+}
+
+.commentContentImage {
+  display: flex;
+  align-items: center;
+}
+
+.commentAvatar {
+  max-width: 26px;
+}
+
+.commentTextarea {
+  background: transparent;
+  width: 100%;
+  height: calc(38px + 2px) !important;
+  border: none !important;
+  padding: 8px !important;
+  outline: none;
+  box-shadow: none !important;
+  background: transparent !important;
+}
+
+.commentTextarea:focus {
+  box-shadow: none !important;
+  background: transparent;
+  border: none !important;
+  outline: none;
+}
+
+.commentIconButton {
+  border: none;
+  background: transparent;
+  margin: 0 4px;
+}
+
+.commentIcon {
+  display: flex;
+  align-items: center;
+}
+
+:global(._dark_wrapper) .commentBox {
+  background: var(--bg6);
+}
+
+:global(._dark_wrapper) .commentTextarea::placeholder {
+  color: rgba(255, 255, 255, 0.36);
+}
+
+:global(._dark_wrapper) .commentTextarea:focus {
+  color: var(--bg2) !important;
+}
+
+:global(._dark_wrapper) .commentIconButton svg path {
+  fill: var(--color5);
+}

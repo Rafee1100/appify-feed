@@ -1,0 +1,333 @@
+::-webkit-scrollbar {
+    display: none;
+}
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+html {
+    padding: 0px;
+    margin: 0 auto;
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0px auto;
+    padding: 0px;
+    background: var(--bg1);
+    font-family: 'Poppins', sans-serif;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+pre,
+p {
+    margin: 0px;
+    color: #767676;
+    font-size: 16px;
+}
+
+h1 {
+    font-size: 30px;
+}
+
+h2 {
+    font-size: 24px;
+}
+
+h3 {
+    font-size: 20px;
+}
+
+h4 {
+    font-size: 17px;
+}
+
+a:hover {
+    color: #1890FF;
+}
+
+ul {
+    padding: 0;
+    margin: 0px;
+}
+
+textarea {
+    resize: none !important;
+}
+
+button,
+select {
+    cursor: pointer;
+}
+
+button:focus,
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+a,
+button {
+    transition: .3s all ease;
+}
+
+button:focus-visible {
+    outline: 0;
+}
+
+input:focus-visible {
+    outline: 0;
+}
+
+ul {
+    list-style: none;
+}
+
+
+/* Design tokens moved to `variable.css` (colors, backgrounds, shadows, spacing). */
+
+._layout {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+._layout_100 {
+    height: 100;
+}
+
+.form-control:focus {
+    box-shadow: none;
+}
+
+._text_center {
+    text-align: center;
+}
+
+._text_right {
+    text-align: right;
+}
+
+._text_left {
+    text-align: left;
+}
+
+
+/*TITLE*/
+
+._title1 {
+    font-weight: 700;
+    font-size: 45px;
+    line-height: 56px;
+}
+
+._title2 {
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 46px;
+}
+
+._title3 {
+    font-weight: 500;
+    font-size: 26px;
+    line-height: 34px;
+}
+
+._title4 {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.2;
+    color: var(--color2);
+}
+
+._title5 {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 1.4;
+    color: var(--color6);
+    margin:0;
+}
+
+
+/*input*/
+
+._inpt1 {
+    background: var(--bg3);
+    border: 1px solid var(--bg3);
+    border-radius: 32px;
+    width: 424px;
+    height: 40px;
+    padding: 7px 47px;
+    transition:.2s all ease;
+}
+._inpt1:hover {
+    border:1px solid var(--color5);
+}
+
+/*INPUT PLACEHOLDER*/
+
+._inpt1::placeholder {
+    font-family: Poppins;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 1.4;
+    color: rgba(0, 0, 0, 0.25);
+}
+
+
+
+/*INPUT PLACEHOLDER*/
+
+
+/*INPUT FOCUS*/
+
+._inpt1:focus::placeholder {
+    transition: .2s all ease;
+    opacity: 0;
+}
+
+
+/*INPUT FOCUS*/
+
+
+/*Button*/
+
+._btn1 {
+    padding: 12px 116px;
+    background: var(--color5);
+    border: 1px solid transparent;
+    border-radius: 6px;
+    font-weight: 500;
+    font-size: 16px;
+    color: #fff;
+}
+
+._btn1:hover {
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+._btn2 {
+    height: 50px;
+    font-size: 16px;
+    line-height: 26px;
+    border-radius: 6px;
+    font-weight: 400;
+}
+
+._btn2:hover {}
+
+._btn3 {
+    height: 32px;
+    font-size: 14px;
+    line-height: 22.4px;
+    border-radius: 6px;
+    font-weight: 400;
+}
+
+._btn3:hover {}
+
+._btn4 {
+    height: 44px;
+    font-size: 14px;
+    line-height: 22.4px;
+    border-radius: 6px;
+    font-weight: 400;
+    padding: 0px 20px;
+}
+
+._btn4:hover {}
+
+
+/* Display */
+
+._dis_flex {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+._dis_flex_all {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+._dis_flex_cntr1 {
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+._dis_flex_cntr2 {
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+._flex_row {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
+/* Spacing/radius utilities moved to variable.css */
+
+/*scroll bar*/
+
+
+/* width */
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+
+/* Track */
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+
+/* Handle */
+
+::-webkit-scrollbar-thumb {
+    background: #D9DEDD;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+
+/* Handle on hover */
+
+
+/*::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}

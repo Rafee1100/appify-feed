@@ -1,0 +1,28 @@
+{
+  "name": "social-feed-frontend",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@tanstack/react-query": "^5.87.4",
+    "axios": "^1.14.0",
+    "formik": "^2.4.6",
+    "lucide-react": "^1.7.0",
+    "next": "16.2.2",
+    "react": "19.2.4",
+    "react-dom": "19.2.4",
+    "react-toastify": "^11.0.5",
+    "zod": "^4.3.6",
+    "zod-formik-adapter": "^2.0.0",
+    "zustand": "^5.0.12"
+  },
+  "devDependencies": {
+    "eslint": "^9",
+    "eslint-config-next": "16.2.2"
+  }
+}

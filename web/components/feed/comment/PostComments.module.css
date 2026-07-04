@@ -1,0 +1,31 @@
+.commentArea {
+  padding: 24px 24px 12px;
+}
+
+.thread {
+  
+  padding: 0 24px 10px;
+}
+
+.previousComment {
+  margin: 0 0 20px;
+}
+
+.previousCommentButton {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color7);
+  line-height: 1.2;
+  border: none;
+  background: transparent;
+}
+
+.state {
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.55);
+  padding: 10px 0;
+}
+
+:global(._dark_wrapper) .state {
+  color: rgba(255, 255, 255, 0.6);
+}

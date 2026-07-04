@@ -75,9 +75,3 @@ export const toggleLikeLimiter = makeMiddleware({
   duration: 60,
   keyPrefix: "toggle_like_",
 });
-export const uploadLimiter = makeMiddleware({
-  byUser: true,
-  points: 30,
-  duration: 60 * 60,
-  keyPrefix: "upload_",
-});

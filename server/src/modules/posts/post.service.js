@@ -138,7 +138,9 @@ const isPostOwner = async (req, _res, next) => {
 
 const canViewPrivatePost = async (req, _res, next) => {
   try {
-    const id = Number(req.params.id);
+    // Accept either `:id` (when used standalone on /api/posts/:id)
+    // or `:postId` (when used nested under /api/posts/:postId/comments).
+    const id = Number(req.params.id ?? req.params.postId);
     if (!Number.isFinite(id)) return next(notFoundOrForbidden());
 
     const rows = await query(

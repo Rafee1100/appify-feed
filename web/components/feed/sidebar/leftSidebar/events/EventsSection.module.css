@@ -1,0 +1,35 @@
+.root {
+    display: block;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+}
+
+.title {
+    display: block;
+}
+
+.link {
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 18px;
+    color: var(--color5);
+    display: block;
+    cursor: pointer;
+    padding: 5px 1px;
+}
+
+.divider {
+    background-color: var(--bg4) !important;
+    margin: 4px 0 10px;
+}
+
+@media only screen and (max-width: 991px) {
+    .root {
+        display: none;
+    }
+}

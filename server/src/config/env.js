@@ -24,8 +24,8 @@ const optional = optionalValue;
 const required = requiredValue;
 
 function loadOrCreateSecret(name) {
-  const envValues = process.env[name];
-  if (!envValues || envValues.trim() === "") return envValues;
+  const existing = process.env[name];
+  if (existing && existing.trim() !== "") return existing;
 
   const secret = crypto.randomBytes(48).toString("hex");
   let current = "";

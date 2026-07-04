@@ -1,0 +1,370 @@
+.root {
+    background: var(--bg2);
+    transition: .2s all ease;
+    
+    content-visibility: auto;
+    contain-intrinsic-size: 800px;
+}
+
+.content {
+    width: 100%;
+}
+
+.top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 0 16px 0;
+}
+
+.postBox {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.postBoxImage {
+    margin: 0 16px 0 0;
+}
+
+.postBoxText {
+    display: block;
+}
+
+.postImg {
+    max-width: 44px;
+    transition: .2s all ease;
+    border-radius: 50%;
+}
+
+.postImg:hover {
+    background: #000;
+    opacity: .7;
+}
+
+.postBoxTitle {
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 1.1;
+    color: #000000;
+    transition: .2s all ease;
+}
+
+.postBoxTitle:hover {
+    text-decoration: underline;
+}
+
+.postBoxMeta {
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 1.2;
+    color: rgba(0, 0, 0, 0.46);
+}
+
+.postBoxMeta a {
+    color: rgba(0, 0, 0, 0.46);
+    transition: .2s all ease;
+}
+
+.postBoxMeta a:hover {
+    text-decoration: underline;
+}
+
+.dropdownWrap {
+    position: relative;
+}
+
+.timelineDropdown {
+    position: relative;
+}
+
+.dropdownButton {
+    display: block;
+    cursor: pointer;
+    padding: 5px 1px;
+    border: none;
+    background: transparent;
+    outline: none !important;
+}
+
+.dropdown {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 312px;
+    background: var(--bg2);
+    box-shadow: 0 10px 20px rgb(0 0 0 / 8%);
+    border-radius: 6px;
+    padding: 16px;
+    transform: translateY(40px);
+    z-index: 1;
+    opacity: 0;
+    visibility: hidden;
+    transition: .2s all ease;
+}
+
+.dropdownOpen {
+    opacity: 1;
+    visibility: visible;
+}
+
+.dropdownAction {
+    border: none;
+    background: transparent;
+    padding: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    text-align: left;
+    cursor: pointer;
+}
+
+.dropdownItem {
+    margin: 0 0 16px 0;
+}
+
+.dropdownList {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.dropdownLink {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.2;
+    color: #666666;
+    transition: .2s all ease;
+}
+
+.dropdownLink:hover {
+    color: var(--color5);
+}
+
+.dropdownLink span {
+    display: inline-block;
+    background: #ebf2ff;
+    padding: 10px;
+    border-radius: 50%;
+    margin: 0 10px 0 0;
+}
+
+.title {
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 21px;
+    color: #000000;
+    margin: 0 0 16px 0;
+}
+
+.imageWrap {
+    margin: 0 0 24px 0;
+}
+
+.image {
+    border-radius: 6px;
+}
+
+.reactsRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.reactsImages {
+    display: flex;
+    cursor: pointer;
+}
+
+.reactImgPrimary {
+    max-width: 32px;
+    background: var(--color3);
+    border: 1px solid var(--bg2);
+    border-radius: 40px;
+    cursor: pointer;
+    height: 32px;
+}
+
+.reactImg {
+    max-width: 32px;
+    margin: 0 0 0 -16px;
+    background: var(--color3);
+    border: 1px solid var(--bg2);
+    border-radius: 40px;
+    cursor: pointer;
+}
+
+.hideOnSmall {
+}
+
+.reactCount {
+    background: var(--color5);
+    border: 2px solid var(--bg2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    margin: 0 0 0 -16px;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 21px;
+    color: var(--bg2);
+}
+
+.reactCountButton {
+    background: var(--color5);
+    border: 2px solid var(--bg2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    margin: 0 0 0 -16px;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 21px;
+    color: var(--bg2);
+    cursor: pointer;
+    padding: 0;
+}
+
+.reactCountButton:hover {
+    filter: brightness(0.98);
+}
+
+.reactsMeta {
+    display: flex;
+}
+
+.commentsMeta {
+    margin: 0 16px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 1.2;
+    cursor: pointer;
+}
+
+.commentsMeta a {
+    color: rgba(0, 0, 0, 0.46);
+}
+
+.commentsMeta span {
+    color: var(--color6);
+}
+
+.sharesMeta {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 1.2;
+}
+
+.sharesMeta span {
+    color: var(--color6);
+}
+
+.reactionBar {
+    background: #FBFCFD;
+    padding: 8px;
+    display: flex;
+}
+
+.reactionButton {
+    margin: 0 4px 0 0;
+    flex: 1 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 48px;
+    background: transparent;
+    border: none;
+    transition: .2s all ease;
+}
+
+.reactionButton:hover {
+    background: #e4f1fd;
+}
+
+.reactionButtonActive {
+    background: #e4f1fd !important;
+}
+
+.reactionLink {
+    border-radius: 6px;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 21px;
+    color: #000000;
+    background: transparent;
+    border: none;
+}
+
+:global(._dark_wrapper) .root {
+    background: var(--bg5);
+}
+
+:global(._dark_wrapper) .postBoxTitle,
+:global(._dark_wrapper) .title {
+    color: var(--bg2);
+}
+
+:global(._dark_wrapper) .postBoxMeta,
+:global(._dark_wrapper) .postBoxMeta a {
+    color: rgba(255, 255, 255, 0.46);
+}
+
+:global(._dark_wrapper) .reactionBar {
+    background: #11263c;
+}
+
+:global(._dark_wrapper) .reactionButton {
+    border-radius: 6px;
+}
+
+:global(._dark_wrapper) .reactionButton:hover,
+:global(._dark_wrapper) .reactionButtonActive {
+    background: #123150 !important;
+}
+
+:global(._dark_wrapper) .reactionLink {
+    color: var(--bg2);
+}
+
+:global(._dark_wrapper) .commentsMeta a,
+:global(._dark_wrapper) .sharesMeta {
+    color: rgba(255, 255, 255, 0.46);
+}
+
+:global(._dark_wrapper) .commentsMeta span,
+:global(._dark_wrapper) .sharesMeta span {
+    color: var(--bg2);
+}
+
+:global(._dark_wrapper) .dropdown {
+    background: var(--bg5);
+}
+
+:global(._dark_wrapper) .dropdownLink {
+    color: #b7bcc1;
+}
+
+
+:global(._dark_wrapper) .reactionLink :global(.reactionSvg) path {
+    stroke: var(--bg2);
+}
+
+@media (max-width: 355px) {
+    .reactionLink {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 410px) {
+    .hideOnSmall {
+        display: none;
+    }
+}

@@ -1,0 +1,21 @@
+.root {
+    display: block;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.headerLink {
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 18px;
+    color: var(--color5);
+}
+
+.divider {
+    background-color: var(--bg4) !important;
+    margin: 4px 0 10px;
+}

@@ -1,0 +1,25 @@
+.dropdownAction {
+  background: transparent;
+  border: none;
+  padding: 0;
+  width: 100%;
+  text-align: left;
+}
+
+.dropdownAction:focus,
+.dropdownAction:focus-visible {
+  outline: none;
+  box-shadow: none;
+}
+
+.dropdownAction:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+
+:global(._header_nav_link_active) .homeIcon :global(path),
+:global(._header_nav_link:hover) .homeIcon :global(path) {
+  fill: none !important;
+  stroke: var(--color5) !important;
+}

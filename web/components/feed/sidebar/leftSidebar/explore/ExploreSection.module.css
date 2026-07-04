@@ -1,0 +1,82 @@
+.root {
+  display: block;
+}
+
+.title {
+  display: block;
+  margin: 0 0 24px 0;
+  font-size: 20px;
+}
+
+.list {
+  display: block;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  margin: 0 0 24px 0;
+}
+
+.link {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.4;
+  color: var(--color7);
+  display: flex;
+  align-items: center;
+  transition: 0.2s all ease;
+  width: 100%;
+}
+
+.link:hover {
+  color: var(--color5) !important;
+}
+
+.icon {
+  margin: 0 14px 0 0;
+  flex: none;
+}
+
+.badge {
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 1.4;
+  color: var(--bg2);
+  background: var(--color8);
+  border: 2px solid var(--bg2);
+  border-radius: 8px;
+  width: 36px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  right: 0;
+}
+
+:global(._dark_wrapper) .link {
+  color: var(--bg2);
+}
+
+:global(._dark_wrapper) .badge {
+  border: 2px solid var(--color8);
+}
+
+@media only screen and (min-width: 1200px) and (max-width: 1399px) {
+  .link {
+    font-size: 11px !important;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .title {
+    font-size: 15px;
+  }
+
+  .link {
+    font-size: 14px;
+  }
+}
