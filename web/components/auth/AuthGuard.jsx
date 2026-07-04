@@ -1,23 +1,30 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { getAccessToken, getRefreshToken } from "@/lib/tokenStorage";
+import { useAuthStore } from "@/store/authStore";
 
 const AuthGuard = ({ children }) => {
   const router = useRouter();
-
-  const access = getAccessToken();
-  const refresh = getRefreshToken();
-  const isAuthed = Boolean(access || refresh);
+  const { user } = useAuthStore();
+  const [checked, setChecked] = useState(false);
+  const [authed, setAuthed] = useState(false);
 
   useEffect(() => {
-    if (!isAuthed) {
+    const access = getAccessToken();
+    const refresh = getRefreshToken();
+    setAuthed(Boolean(access || refresh) || Boolean(user));
+    setChecked(true);
+  }, [user]);
+
+  useEffect(() => {
+    if (checked && !authed) {
       router.replace("/auth/login");
     }
-  }, [isAuthed, router]);
+  }, [checked, authed, router]);
 
-  if (!isAuthed) {
+  if (!checked || !authed) {
     return (
       <div
         style={{
