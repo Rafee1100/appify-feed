@@ -1,16 +1,37 @@
 import axios from "axios";
+import {
+  clearTokens,
+  getAccessToken,
+  getRefreshToken,
+  setTokens,
+} from "@/lib/tokenStorage";
+
+const API_BASE_URL =
+  process.env.NEXT_PUBLIC_API_URL?.trim().replace(/\/+$/, "") ||
+  "http://localhost:4000";
+
+const attachBearer = (config) => {
+  const token = getAccessToken();
+  if (token) {
+    config.headers = config.headers || {};
+    config.headers.Authorization = `Bearer ${token}`;
+  }
+  return config;
+};
 
 const HTTP_DEFAULTS = axios.create({
-  baseURL: "/api/proxy",
-  withCredentials: true,
+  baseURL: `${API_BASE_URL}/api`,
+  withCredentials: false,
   timeout: 15000,
 });
 
 const REFRESH_CLIENT = axios.create({
-  baseURL: "/api/proxy",
-  withCredentials: true,
+  baseURL: `${API_BASE_URL}/api`,
+  withCredentials: false,
   timeout: 15000,
 });
+
+HTTP_DEFAULTS.interceptors.request.use(attachBearer);
 
 const unwrap = async (promise) => {
   const { data } = await promise;
@@ -44,9 +65,14 @@ HTTP_DEFAULTS.interceptors.response.use(
     ) {
       originalConfig._retry = true;
       try {
-        await REFRESH_CLIENT.post("/auth/refresh");
+        const refreshToken = getRefreshToken();
+        const { data } = await REFRESH_CLIENT.post("/auth/refresh", {
+          refreshToken,
+        });
+        if (data?.accessToken) setTokens(data);
         return HTTP_DEFAULTS(originalConfig);
       } catch (refreshErr) {
+        clearTokens();
         window.location.href = "/auth/login";
         return Promise.reject(refreshErr);
       }

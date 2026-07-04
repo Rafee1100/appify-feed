@@ -5,9 +5,19 @@ import { ERROR_CODES } from '../constants.js';
 
 const COOKIE_NAME = 'accessToken';
 
+function extractToken(req) {
+  const cookieToken = req.cookies?.[COOKIE_NAME];
+  if (cookieToken) return cookieToken;
+
+  const header = req.headers.authorization || req.headers.Authorization;
+  if (!header || typeof header !== 'string') return null;
+  const m = /^Bearer\s+(.+)$/i.exec(header.trim());
+  return m ? m[1] : null;
+}
+
 export default async function authenticate(req, _res, next) {
   try {
-    const token = req.cookies?.[COOKIE_NAME];
+    const token = extractToken(req);
     if (!token) throw createError(401, 'Authentication required', { code: ERROR_CODES.UNAUTHORIZED });
 
     let payload;
